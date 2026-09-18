@@ -12,7 +12,7 @@ The application provides random predictions in three different categories: **Lov
 
 A short demonstration of the application and its interactive fortune-telling features.
 
-[▶️ Watch the demo video](assets/demorecordings/screenrecorder/screenrecorder_1.mp4)
+[▶️ Watch the demo video](assets/demorecordings/screenrecorder/screenrecorder_1.gif)
 
 ## ✨ Features
 
