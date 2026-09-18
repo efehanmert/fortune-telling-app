@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(_UygulamaAnaSayfa());
@@ -45,7 +46,7 @@ class _FalSayfasiState extends State<_FalSayfasi> {
     'PARA: Bugün cüzdanınızı açmadan önce iki kez düşünün; anlık bir hevesle yapılacak alışverişler ay sonu bütçenizi gereksiz yere zorlayabilir.',
     'PARA: Finansal konularda bağımsız hareket etme isteğiniz yüksek olabilir, ancak güvendiğiniz bir uzmanın veya bir büyüğünüzün tavsiyesi sizi olası bir zarardan kurtarabilir.',
     'PARA: Küçük ve önemsiz gibi görünen düzenli giderler birikerek büyük yükler oluşturuyor olabilir. Bugün banka ekstrelerinizi inceleyip gereksiz abonelikleri sonlandırmayı düşünün.',
-    'PARA: Kazancınızı artırmaya yönelik yeni bir fikir aklınızı kurcalayabilir. Hemen uygulamaya geçmek yerine önce iyi bir pazar araştırması ve maliyet analizi yapmalısınız.',
+    'PARA: Kazancınızı artırmaya yönelik yeni bir fikir aklınızı kurcalayabilir. Hemen uygulamaya geçmek yerine önce iyi bir pazar araştırması me maliyet analizi yapmalısınız.',
     'PARA: Borç verme ya da ortaklı finansal adımlar atma konusunda bugün temkinli olmalısınız. Net sınırları çizilmemiş parasal ilişkiler ileride canınızı sıkabilir.',
     'TAVSİYE: Bugün ertelediğin o küçük ama can sıkan ev işlerini bitirmeyi dene; alanını temizlemek zihnindeki karmaşayı da büyük ölçüde toparlayacaktır.',
     'TAVSİYE: Karar verirken çevrendeki herkesin fikrini almak yerine, kendi iç sesini duymak için kendine gün içinde en az yirmi dakikalık sessiz bir zaman yarat.',
@@ -81,64 +82,97 @@ class _FalSayfasiState extends State<_FalSayfasi> {
         backgroundColor: Colors.purple,
         title: Text(
           'Günün Falı',
-          style: TextStyle(color: Colors.amberAccent),
+          style: GoogleFonts.cinzel(
+            color: Colors.amberAccent,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              width: 150,
-              margin: EdgeInsets.only(
-                bottom: 20,
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: 150,
+                margin: EdgeInsets.only(
+                  bottom: 20,
+                ),
+                child: Image.asset('assets/screenpicture/falci.png'),
               ),
-              child: Image.asset('assets/screenpicture/falci.png'),
-            ),
-            Card(
-              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-              child: ListTile(
-                leading: Icon(
-                  Icons.favorite,
-                  color: Colors.red,
+              Card(
+                margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.favorite,
+                    color: Colors.red,
+                  ),
+                  title: Text(
+                    'Aşk Durumu',
+                    style: GoogleFonts.cinzel(
+                      color: Colors.redAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: rastgeleDegisAsk,
                 ),
-                title: Text(
-                  'Aşk Durumu',
-                  style: TextStyle(color: Colors.redAccent),
-                ),
-                onTap: rastgeleDegisAsk,
               ),
-            ),
-            Card(
-              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-              child: ListTile(
-                leading: Icon(
-                  Icons.shopping_cart,
-                  color: Colors.greenAccent,
+              Card(
+                margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.shopping_cart,
+                    color: Colors.greenAccent,
+                  ),
+                  title: Text(
+                    'Para Durumu',
+                    style: GoogleFonts.cinzel(
+                      color: Colors.greenAccent,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: rastgeleDegisPara,
                 ),
-                title: Text(
-                  'Para Durumu',
-                  style: TextStyle(color: Colors.greenAccent),
-                ),
-                onTap: rastgeleDegisPara,
               ),
-            ),
-            Card(
-              margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
-              child: ListTile(
-                leading: Icon(
-                  Icons.explore,
-                  color: Colors.blueAccent,
+              Card(
+                margin: EdgeInsets.symmetric(horizontal: 40, vertical: 5),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.explore,
+                    color: Colors.blueAccent,
+                  ),
+                  title: Text(
+                    'Günlük Tavsiye',
+                    style: GoogleFonts.cinzel(
+                      color: Colors.blue,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  onTap: rastgeleDegisTavsiye,
                 ),
-                title: Text(
-                  'Günlük Tavsiye',
-                  style: TextStyle(color: Colors.blue),
-                ),
-                onTap: rastgeleDegisTavsiye,
               ),
-            ),
-          ],
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 25),
+                width: double.infinity,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                  child: Text(
+                    yanitHavuzu[yanitIndex],
+                    style: GoogleFonts.marcellus(
+                      color: Colors.deepPurple[900],
+                      fontSize: 16,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
